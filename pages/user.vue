@@ -26,6 +26,11 @@
 </template>
 <script setup>
 const supabase = useSupabaseClient();
+const config = useRuntimeConfig()
+const route = useRoute()
+
+const authRedirectUrl = config.SUPABASE_AUTH_REDIRECT_URL
+const redirectUrl = route.query.redirect
 
 const loading = ref(false);
 const email = ref("");
@@ -33,7 +38,8 @@ const email = ref("");
 const handleLogin = async () => {
   try {
     loading.value = true;
-    const { error } = await supabase.auth.signInWithOtp({ email: email.value });
+    const { error } = await supabase.auth.signInWithOtp({ email: email.value },
+    { redirectTo: authRedirectUrl + redirectUrl });
     if (error) throw error;
     alert("Check your email for the login link!");
   } catch (error) {
