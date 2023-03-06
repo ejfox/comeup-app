@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "nuxt": "^3.2.3"
+  },
+  "dependencies": {
+    "@nuxtjs/supabase": "^0.3.1",
+    "@supabase/supabase-js": "^2.10.0",
+    "@vueuse/sound": "^2.0.1",
+    "animejs": "^3.2.1",
+    "tachyons": "^4.12.0"
+  }
+}
